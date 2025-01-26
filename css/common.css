@@ -2,10 +2,17 @@
   box-sizing: border-box;
 }
 
+p,
+h1,
+h2 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
 body {
   margin: 16px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #fafafa;
@@ -14,11 +21,13 @@ body {
 }
 
 .gallery {
+  list-style: none;
   display: flex;
   flex-wrap: wrap;
   column-gap: 24px;
   row-gap: 48px;
-  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .gallery-image {
@@ -26,4 +35,72 @@ body {
   height: 300px;
   object-fit: cover;
   display: block;
+}
+
+#name-input {
+  width: 360px;
+  margin-bottom: 16px;
+}
+
+.login-form {
+  width: 408px;
+  min-height: 256px;
+  padding: 24px;
+  border-radius: 4px;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12),
+    0 2px 1px 0 rgba(0, 0, 0, 0.2);
+  background-color: #fcfcfc;
+}
+
+.login-form label {
+  display: block;
+  font-size: 16px;
+  line-height: 1.17;
+  letter-spacing: 0.04em;
+  color: #2e2f42;
+}
+
+input {
+  width: 100%;
+  margin-bottom: 8px;
+  margin-top: 8px;
+  border: 1px solid rgba(46, 47, 66, 0.4);
+  border-radius: 4px;
+  padding-left: 16px;
+  height: 40px;
+  outline: transparent;
+  background-color: transparent;
+}
+
+button {
+  display: block;
+  cursor: pointer;
+  border: none;
+  font-weight: 500;
+  font-size: 16px;
+  border-radius: 8px;
+  padding: 8px 12px;
+  width: 130px;
+  height: 40px;
+  background-color: #4e75ff;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #fff;
+  margin-top: 16px;
+}
+
+#controls {
+  width: 300px;
+}
+
+#controls button:last-child {
+  background-color: #ff4e4e;
+}
+
+#boxes {
+  width: 900px;
+  display: flex;
+  flex-wrap: wrap;
 }

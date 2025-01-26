@@ -34,19 +34,18 @@ const images = [
 //     })
 //     .join('');
 
-// // console.log(markup);
-
 // galleryElem.insertAdjacentHTML('afterbegin', markup(images));
 // console.log(galleryElem);
 
 const galleryElem = document.querySelector('.gallery');
 
-const gallleryItem = document.createElement('li');
-console.log(gallleryItem);
+function imageTemplate(image) {
+  return `<li class=gallery-item><img class=gallery-image src='${image.url}' alt='${image.alt}'></li>`;
+}
 
-const galleryImage = document.createElement('img');
+function imagesTemplate(images) {
+  const markup = images.map(imageTemplate).join('');
+  return markup;
+}
 
-galleryImage.src = images.url;
-galleryImage.alt = images.alt;
-
-console.log(galleryImage);
+galleryElem.innerHTML = imagesTemplate(images);
