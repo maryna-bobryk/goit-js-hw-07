@@ -9,23 +9,39 @@ const btnCreate = document.querySelector('button[data-create]');
 const btnDestroy = document.querySelector('button[data-destroy]');
 const boxElem = document.querySelector('#boxes');
 
-// ========= Box erstellen  =========
+function boxTemplate(box) {
+  return `<div 
+            style="
+              width: ${box.width}px; 
+              height: ${box.height}px; 
+              margin: 5px; 
+              background-color: ${box.backgroundColor};
+            ">
+          </div>`;
+}
+
+function boxesTemplate(boxes) {
+  const markup = boxes.map(boxTemplate).join('');
+  return markup;
+}
+
+let boxesArray = [];
 
 function createBoxes(amount) {
-  boxElem.innerHTML = '';
   let width = 30;
   let height = 30;
 
   for (let i = 0; i < amount; i++) {
-    const box = document.createElement('div');
-    box.style.width = `${width}px`;
-    box.style.height = `${height}px`;
-    box.style.margin = '5px';
-    box.style.backgroundColor = getRandomHexColor();
+    const boxObj = {
+      width: width,
+      height: height,
+      backgroundColor: getRandomHexColor(),
+    };
     width += 10;
     height += 10;
-    boxElem.append(box);
+    boxesArray.push(boxObj);
   }
+  boxElem.innerHTML = boxesTemplate(boxesArray);
 }
 
 // ========= Input rot =========
@@ -48,10 +64,33 @@ function onBtnCreateClick() {
     inputElem.value = '';
   }
 }
+// console.log(boxesArray);
 
 // ========= Destroy Btn  =========
 btnDestroy.addEventListener('click', destroyBoxes);
 
 function destroyBoxes() {
   boxElem.innerHTML = '';
+
 }
+
+// ========= Box erstellen  =========
+
+// function createBoxes(amount) {
+//   boxElem.innerHTML = '';
+//   boxesArray = [];
+
+//   let width = 30;
+//   let height = 30;
+
+//   for (let i = 0; i < amount; i++) {
+//     const box = document.createElement('div');
+//     box.style.width = `${width}px`;
+//     box.style.height = `${height}px`;
+//     box.style.margin = '5px';
+//     box.style.backgroundColor = getRandomHexColor();
+//     width += 10;
+//     height += 10;
+//     boxElem.append(box);
+//   }
+// }
