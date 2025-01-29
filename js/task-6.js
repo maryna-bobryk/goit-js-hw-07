@@ -28,6 +28,9 @@ function boxesTemplate(boxes) {
 let boxesArray = [];
 
 function createBoxes(amount) {
+  boxesArray = [];
+  boxElem.innerHTML = '';
+
   let width = 30;
   let height = 30;
 
@@ -44,7 +47,7 @@ function createBoxes(amount) {
   boxElem.innerHTML = boxesTemplate(boxesArray);
 }
 
-// ========= Input rot =========
+// ========= Input rot =========a
 inputElem.addEventListener('input', onInputChange);
 function onInputChange() {
   let value = Number(inputElem.value);
@@ -71,7 +74,7 @@ btnDestroy.addEventListener('click', destroyBoxes);
 
 function destroyBoxes() {
   boxElem.innerHTML = '';
-
+  boxesArray = [];
 }
 
 // ========= Box erstellen  =========
